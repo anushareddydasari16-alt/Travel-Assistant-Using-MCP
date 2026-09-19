@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 ## ✈️ AI Travel Assistant -A Multi-Agent Travel Planner With MCP (Model Context Protocol)
 
