@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Travel Assistant</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="page-bg">
+        <div class="gradient-circle circle-1"></div>
+        <div class="gradient-circle circle-2"></div>
+        <div class="gradient-circle circle-3"></div>
+    </div>
+
+    <main class="app-container">
+
+        <section class="hero-section">
+            <div class="badge">
+                ✈️ AI Travel Assistant -A Multi-Agent Travel Planner With LangGraph
+            </div>
+
+            <h1>
+                Plan Your Perfect Trip with AI
+            </h1>
+
+            <p>
+                Search flights, discover hotels, and build a personalized travel itinerary in seconds.
+        </section>
+
+        <section class="planner-card">
+
+            <div class="card-header">
+                <div>
+                    <h2>Where would you like to go?</h2>
+                    <p>
+                        Example: Plan a complete 5-day New York trip from Boston under $2,000.
+                    </p>
+                </div>
+
+                <div class="status-pill">
+                    <span class="status-dot"></span>
+                    Online
+                </div>
+            </div>
+
+            <div class="input-area">
+                <textarea
+                    id="travelInput"
+                    placeholder="Tell us your destination, trip length, budget, and what you want to do..."
+                ></textarea>
+
+                <button id="sendBtn" onclick="sendMessage()">
+                    <span id="btnText">Generate My Trip</span>
+                    <span id="btnLoader" class="loader hidden"></span>
+                </button>
+            </div>
+
+            <div class="quick-prompts">
+                <button onclick="setPrompt('Plan a complete 5-day New York trip from Boston under $2,000.')">
+                    New York Trip
+                </button>
+
+                <button onclick="setPrompt('Plan a 5 days california trip from Boston with flights, hotels and sightseeing.')">
+                    California Trip
+                </button>
+
+                <button onclick="setPrompt('Plan a 7 days Florida trip from Boston with budget hotels and sightseeing.')">
+                    Florida Trip
+                </button>
+
+                <button onclick="setPrompt('Give me all country flight info.')">
+                    Global Flights
+                </button>
+            </div>
+
+        </section>
+
+        <section id="resultSection" class="result-section hidden">
+
+            <div class="result-header">
+                <div>
+                    <h2>Your AI Travel Plan</h2>
+                    <p id="threadInfo">Thread ID: -</p>
+                </div>
+
+                <div class="result-actions">
+                    <button class="copy-btn" onclick="copyResult()">
+                        Copy
+                    </button>
+
+                    <button class="download-btn" onclick="downloadPDF()">
+                        Download PDF
+                    </button>
+                </div>
+            </div>
+
+            <div id="pdfContent" class="pdf-content">
+                <h1 class="pdf-title">AI Travel Plan</h1>
+                <div id="resultBox" class="result-box"></div>
+            </div>
+
+        </section>
+
+        <section id="errorBox" class="error-box hidden"></section>
+
+    </main>
+
+    <footer>
+        Built with FastAPI, LangGraph, Groq, PostgreSQL, Tavily and AviationStack
+    </footer>
+
+    <!-- Markdown Renderer -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- PDF Download Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <!-- Your Custom JS -->
+    <script src="/static/script.js?v=3"></script>
+
+</body>
+</html>
